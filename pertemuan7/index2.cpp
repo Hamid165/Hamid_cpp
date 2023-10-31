@@ -21,6 +21,6 @@ int main()
     {
         cout << daftar_mhs[i] << endl;
     }
-    //  cout << "bulan ke - " << jmlh_mhs << "adalah : " << daftar_mhs[jmlh_mhs - 1];
+    
     return 0;
 }
