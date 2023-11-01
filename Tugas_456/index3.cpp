@@ -8,7 +8,7 @@ int main()
     int nilai_129[6] = {90, 80, 70, 60, 50, 40};
 
     for (int i = 0; i < 6; i++)
-
+    
     {
         cout << "Data ke - " << i << " = " << nama_129[i] << " dengan nilai : " << nilai_129[i] << endl;
     }
