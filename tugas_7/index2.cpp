@@ -8,7 +8,7 @@ int main()
 {
     int pilihan;
     do
-    {p
+    {
         cout << "MENU" << endl;
         cout << "1. Input array" << endl;
         cout << "2. Tampilkan array" << endl;
