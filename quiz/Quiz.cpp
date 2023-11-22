@@ -27,7 +27,7 @@ void luas_segitiga()
     hasil = (alas * tinggi) / bagi;
     cout << "Luas segitiga adalah = " << hasil;
 }
-void luas_lingkaran()
+void keliling_lingkaran()
 {
     cout << "\n";
     cout << "Menu Keliling Lingkaran\n"
@@ -61,7 +61,7 @@ int main()
             luas_segitiga();
             break;
         case 3:
-            luas_lingkaran();
+            keliling_lingkaran();
             break;
         default:
             cout << "Program Berhenti";
