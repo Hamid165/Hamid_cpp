@@ -3,18 +3,18 @@ using namespace std;
 
 int penjumlahan(int x, int y)
 {
-    return x + y; 
+    return x + y;
 }
 
 float luas_segitiga(float alas, float tinggi)
 {
-    return (alas * tinggi) / 2; 
+    return (alas * tinggi) / 2;
 }
 
 float keliling_lingkaran(float jari_jari)
 {
     float phi = 3.14;
-    return 2 * phi * jari_jari; 
+    return 2 * phi * jari_jari;
 }
 
 int main()
