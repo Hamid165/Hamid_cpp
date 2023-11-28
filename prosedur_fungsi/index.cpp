@@ -2,15 +2,12 @@
 #include <cmath>
 using namespace std;
 
-// fungsi
-
 double luas_lingkaran(double jari_jari)
 {
 
     return M_PI * pow(jari_jari, 2);
 }
 
-// prosedur
 double keliling_lingkaran(double jari)
 {
     return 2 * M_PI * jari;
@@ -18,7 +15,6 @@ double keliling_lingkaran(double jari)
 double jari;
 int main()
 {
-
     cout << "masukan jari-jari : ";
     cin >> jari;
 
