@@ -1,8 +1,9 @@
 #include <iostream>
 #include <iomanip>
+#include <string>
 using namespace std;
 
-const int MAX_PRODUK = 10;
+const int MAX_PRODUK = 20;
 
 // Struktur untuk menyimpan informasi produk dari buku
 struct Produk
@@ -26,7 +27,7 @@ struct Pembayaran
     double kembalian;
 };
 
-// Fungsi untuk menampilkan produk
+// Prosedure untuk menampilkan produk
 void tampilkanProduk(const Produk tampil[], int jumlahBuku)
 {
     cout << "|===================================================|" << endl;
@@ -41,7 +42,7 @@ void tampilkanProduk(const Produk tampil[], int jumlahBuku)
     {
         for (int i = 0; i < jumlahBuku; i++)
         {
-            cout << " ID: " << tampil[i].id << ", Nama: " << tampil[i].nama << ", Jenis: " << tampil[i].jenis << " - Rp " << fixed << setprecision(2) << tampil[i].harga << endl;
+            cout << " ID : " << tampil[i].id << ", Nama : " << tampil[i].nama << ", Jenis : " << tampil[i].jenis << " - Rp " << fixed << setprecision(2) << tampil[i].harga << endl;
         }
         cout << "|===================================================|" << endl;
     }
@@ -84,7 +85,7 @@ void hapusProduk(int id)
     cout << "Produk dengan ID " << id << " tidak ditemukan.\nSilakan cek kembali ID buku." << endl;
 }
 
-// Fungsi untuk mengedit produk
+// Prosedure untuk mengedit produk
 void editProduk(int id)
 {
     for (int i = 0; i < jumlahBuku; i++)
@@ -95,9 +96,10 @@ void editProduk(int id)
             cout << "|                    Edit Buku                     |" << endl;
             cout << "|==================================================|" << endl;
             cout << "Masukkan Judul Buku : ";
-            cin >> produk[i].nama;
+            cin.ignore();
+            getline(cin, produk[i].nama);
             cout << "Masukkan Jenis Buku : ";
-            cin >> produk[i].jenis;
+            getline(cin, produk[i].jenis);
             cout << "Masukkan harga Buku : ";
             cin >> produk[i].harga;
             cout << "Buku berhasil diubah." << endl;
@@ -107,7 +109,7 @@ void editProduk(int id)
     cout << "Buku dengan ID " << id << " tidak ditemukan.\nSilakan cek kembali ID buku" << endl;
 }
 
-// Fungsi untuk menampilkan struktur pembayaran
+// Prosedure untuk menampilkan struktur pembayaran
 void tampilkanPembayaran(const Pembayaran &pembayaran)
 {
     cout << "=============== Struktur Pembayaran ===============|" << endl;
@@ -165,9 +167,10 @@ int main()
                 cout << "|                     Tambah Buku                   |" << endl;
                 cout << "|===================================================|" << endl;
                 cout << "Masukkan Nama Buku: ";
-                cin >> produk[jumlahBuku].nama;
+                cin.ignore();
+                getline(cin, produk[jumlahBuku].nama);
                 cout << "Masukkan Jenis Buku: ";
-                cin >> produk[jumlahBuku].jenis;
+                getline(cin, produk[jumlahBuku].jenis);
                 cout << "Masukkan Harga Buku: ";
                 cin >> produk[jumlahBuku].harga;
                 // ID dimulai dari 1
@@ -180,6 +183,7 @@ int main()
                 cout << "Jumlah buku telah mencapai batas maksimal." << endl;
             }
             break;
+
         case 2:
             cout << "\n"
                  << endl;
@@ -234,7 +238,7 @@ int main()
             }
             else
             {
-                cout << "Belum ada buku yang ditambahkan untuk dibayarkan.\nSilakan tambahkan buku terlebih dahulu." << endl;
+                cout << "Belum ada buku yang ditambahkan untuk dibayarkan. \nSilakan tambahkan buku terlebih dahulu." << endl;
             }
             break;
 
@@ -245,7 +249,7 @@ int main()
             cout << "|                   ID Edit Buku                    |" << endl;
             cout << "|===================================================|" << endl;
             int idEdit;
-            cout << "Masukkan ID buku yang ingin diubah:";
+            cout << "Masukkan ID buku yang ingin diubah : ";
             cin >> idEdit;
             cout << "\n"
                  << endl;
