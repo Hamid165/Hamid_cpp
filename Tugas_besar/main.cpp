@@ -119,17 +119,18 @@ void tampilkanPembayaran(const Pembayaran &pembayaran)
 
     for (int i = 0; i < pembayaran.jumlahBukuDibeli; i++)
     {
-        cout << "Nama: " << setw(20) << left << pembayaran.produkDibeli[i].nama << endl;
-        cout << "Jenis: " << setw(15) << left << pembayaran.produkDibeli[i].jenis << endl;
-        cout << "Harga: Rp " << fixed << setprecision(2) << pembayaran.produkDibeli[i].harga << endl;
+        cout << "|Nama: " << setw(20) << left << pembayaran.produkDibeli[i].nama << endl;
+        cout << "|Jenis: " << setw(15) << left << pembayaran.produkDibeli[i].jenis << endl;
+        cout << "|Harga: Rp " << fixed << setprecision(2) << pembayaran.produkDibeli[i].harga << endl;
     }
 
     cout << "|==================================================|" << endl;
-    cout << "Total Belanja: Rp " << setw(32) << fixed << setprecision(2) << pembayaran.totalBelanja << endl;
-    cout << "Uang Dibayarkan: Rp " << setw(29) << fixed << setprecision(2) << pembayaran.uangDibayarkan << endl;
-    cout << "Kembalian: Rp " << setw(34) << fixed << setprecision(2) << pembayaran.kembalian << endl;
+    cout << "|Total Belanja: Rp " << setw(32) << fixed << setprecision(2) << pembayaran.totalBelanja << endl;
+    cout << "|Uang Dibayarkan: Rp " << setw(29) << fixed << setprecision(2) << pembayaran.uangDibayarkan << endl;
+    cout << "|Kembalian: Rp " << setw(34) << fixed << setprecision(2) << pembayaran.kembalian << endl;
+    cout << "|Terima kasih telah berbelanja di sini." << endl;
     cout << "|==================================================|" << endl;
-    cout << "Terima kasih telah berbelanja di sini." << endl;
+
 }
 
 int main()
