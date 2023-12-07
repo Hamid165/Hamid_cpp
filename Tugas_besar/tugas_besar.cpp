@@ -18,7 +18,7 @@ void tampilkanMenu()
 {
     cout << "|===================================================|" << endl;
     cout << "|              Program Kasir Toko Buku              |" << endl;
-    cout << "|===================================================|" << endl;
+    cout << "|===========================================   ========|" << endl;
     cout << "|1. Pilih Buku dari List                            |" << endl;
     cout << "|2. Edit Buku                                       |" << endl;
     cout << "|3. Bayar Buku yang Dipilih                         |" << endl;
