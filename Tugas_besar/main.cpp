@@ -16,28 +16,56 @@ struct Produk
 Produk produk[MAX_PRODUK];
 int jumlahBuku = 0;
 
-void inisialisasiListBuku()
+void listBuku()
 {
-    produk[jumlahBuku++] = {1, "Buku A", "Jenis A", 100};
-    produk[jumlahBuku++] = {2, "Buku B", "Jenis B", 150};
-    produk[jumlahBuku++] = {3, "Buku C", "Jenis C", 200};
-    produk[jumlahBuku++] = {4, "Buku D", "Jenis D", 250};
-    produk[jumlahBuku++] = {5, "Buku E", "Jenis E", 300};
+    produk[jumlahBuku++] = {1, "Harry Potter and the Sorcerer's ", "Fantasi", 100000};
+    produk[jumlahBuku++] = {2, "To Kill a Mockingbird", "Fiksi Sejarah", 150000};
+    produk[jumlahBuku++] = {3, "The Great Gatsby", "Fiksi", 200000};
+    produk[jumlahBuku++] = {4, "1984 ", "Fiksi Ilmiah", 250000};
+    produk[jumlahBuku++] = {5, "The Catcher in the Rye ", "Fiksi Psikologis", 230000};
+    produk[jumlahBuku++] = {6, "The Lord of the Rings ", "Fantasi ", 310000};
+    produk[jumlahBuku++] = {7, "Pride and Prejudice ", "Romantis ", 150000};
+    produk[jumlahBuku++] = {8, "The Hobbit ", "Petualangan ", 120000};
+    produk[jumlahBuku++] = {9, "Brave New World ", "Fiksi Ilmiah ", 90000};
+    produk[jumlahBuku++] = {10, "The Hunger Games ", "Fiksi Distopia ", 130000};
 }
 
-void tampilkanProduk(const Produk tampil[], int jumlahBuku)
+void tampilkanSemuaBuku(const Produk tampil[], int jumlahBuku)
 {
-    cout << "|===================================================|" << endl;
-    cout << "|              Daftar Buku Ditambahkan              |" << endl;
-    cout << "|===================================================|" << endl;
+    cout << "|=================================================================================|" << endl;
+    cout << "|                              Daftar Buku                                        |" << endl;
+    cout << "|=================================================================================|" << endl;
+    cout << "| ID   | Nama Buku                           | Jenis            | Harga           |" << endl;
+    cout << "|------|-------------------------------------|------------------|-----------------|" << endl;
+
     if (jumlahBuku == 0)
     {
-        cout << "|           Belum ada buku yang ditambahkan         |" << endl;
-        cout << "|===================================================|" << endl;
+        cout << "|                                  Belum ada buku yang ditambahkan                                    |" << endl;
     }
     else
     {
         for (int i = 0; i < jumlahBuku; i++)
+        {
+            cout << "| " << left << setw(4) << tampil[i].id << " | " << left << setw(35) << tampil[i].nama << " | " << left << setw(16) << tampil[i].jenis << " | Rp " << left << setw(12) << fixed << setprecision(2) << tampil[i].harga << " |" << endl;
+        }
+    }
+    cout << "|=================================================================================|" << endl;
+}
+
+void tampilkanBukuDipilih(const Produk tampil[], int jumlahBuku)
+{
+    cout << "|===================================================|" << endl;
+    cout << "|               Buku yang Dipilih                   |" << endl;
+    cout << "|===================================================|" << endl;
+
+    if (jumlahBuku == 0)
+    {
+        cout << "|       Belum ada buku yang dipilih untuk dibayar   |" << endl;
+        cout << "|===================================================|" << endl;
+    }
+    else
+    {
+        for (int i = 1; i < jumlahBuku; i++)
         {
             cout << " ID : " << tampil[i].id << ", Nama : " << tampil[i].nama << ", Jenis : " << tampil[i].jenis << " - Rp " << fixed << setprecision(2) << tampil[i].harga << endl;
         }
@@ -74,12 +102,6 @@ void hapusProduk(int id)
             produk[i] = produk[i + 1];
         }
         jumlahBuku--;
-
-        for (int i = 0; i < jumlahBuku; i++)
-        {
-            produk[i].id = i + 1;
-        }
-
         cout << "Buku berhasil dihapus." << endl;
     }
     else
@@ -122,20 +144,23 @@ struct Pembayaran
 
 void tampilkanPembayaran(const Pembayaran &pembayaran)
 {
-    cout << "=============== Struktur Pembayaran ===============|" << endl;
-    cout << "|==================================================|" << endl;
-    cout << "|               Produk yang Dibeli                 |" << endl;
-    cout << "|==================================================|" << endl;
+    cout << "|===================================================|" << endl;
+    cout << "|               Buku Yang Dipilih                   |" << endl;
+    cout << "|===================================================|" << endl;
 
     for (int i = 0; i < pembayaran.jumlahBukuDibeli; i++)
     {
-        cout << "|Nama: " << setw(20) << left << pembayaran.produkDibeli[i].nama << endl;
-        cout << "|Jenis: " << setw(15) << left << pembayaran.produkDibeli[i].jenis << endl;
-        cout << "|Harga: Rp " << fixed << setprecision(2) << pembayaran.produkDibeli[i].harga << endl;
+        cout << " ID : " << pembayaran.produkDibeli[i].id
+             << ", Nama : " << pembayaran.produkDibeli[i].nama
+             << ", Jenis : " << pembayaran.produkDibeli[i].jenis
+             << " - Rp " << fixed << setprecision(2) << pembayaran.produkDibeli[i].harga << endl;
     }
 
-    cout << "|==================================================|" << endl;
-    cout << "|Total Belanja: Rp " << setw(32) << fixed << setprecision(2) << pembayaran.totalBelanja << endl;
+    cout << "|===================================================|" << endl;
+
+    double totalBelanja = hitungTotal(pembayaran.produkDibeli, pembayaran.jumlahBukuDibeli);
+    cout << "Total belanja: Rp " << fixed << setprecision(2) << totalBelanja << endl;
+
     cout << "|Uang Dibayarkan: Rp " << setw(29) << fixed << setprecision(2) << pembayaran.uangDibayarkan << endl;
     cout << "|Kembalian: Rp " << setw(34) << fixed << setprecision(2) << pembayaran.kembalian << endl;
     cout << "|Terima kasih telah berbelanja di sini." << endl;
@@ -146,21 +171,19 @@ int main()
 {
     int pilihan;
 
-    inisialisasiListBuku();
+    listBuku();
 
     do
     {
-        cout << "\n"
-             << endl;
+        cout << "\n";
         cout << "|===================================================|" << endl;
         cout << "|              Program Kasir Toko Buku              |" << endl;
         cout << "|===================================================|" << endl;
         cout << "| 1. Pilih Buku yang Tersedia                       |" << endl;
-        cout << "| 2. Tampilkan Produk                               |" << endl;
-        cout << "| 3. Hitung Total Belanja                           |" << endl;
-        cout << "| 4. Edit Produk                                    |" << endl;
-        cout << "| 5. Hapus Produk                                   |" << endl;
-        cout << "| 6. Keluar                                         |" << endl;
+        cout << "| 2. Edit Buku                                      |" << endl;
+        cout << "| 3. Hapus Buku                                     |" << endl;
+        cout << "| 4. Hitung Total Belanja                           |" << endl;
+        cout << "| 5. Keluar                                         |" << endl;
         cout << "|===================================================|" << endl;
         cout << "Pilih Menu :  ";
         cin >> pilihan;
@@ -172,12 +195,8 @@ int main()
         case 1:
             if (jumlahBuku < MAX_PRODUK)
             {
-                cout << "\n"
-                     << endl;
-                cout << "|===================================================|" << endl;
-                cout << "|                     Pilih Buku                    |" << endl;
-                cout << "|===================================================|" << endl;
-                tampilkanProduk(produk, jumlahBuku);
+                cout << "\n";
+                tampilkanSemuaBuku(produk, jumlahBuku);
                 int idBuku;
                 cout << "Masukkan ID buku yang ingin dipilih: ";
                 cin >> idBuku;
@@ -197,9 +216,28 @@ int main()
 
                     if (!bukuSudahDipilih)
                     {
-                        // Menambahkan buku yang dipilih ke dalam struktur Pembayaran
-                        pembayaran.produkDibeli[pembayaran.jumlahBukuDibeli++] = produk[idBuku - 1];
-                        cout << "Buku berhasil dipilih." << endl;
+                        // Temukan indeks buku yang dipilih di array produk
+                        int indexProdukDipilih = -1;
+                        for (int i = 0; i < jumlahBuku; ++i)
+                        {
+                            if (produk[i].id == idBuku)
+                            {
+                                indexProdukDipilih = i;
+                                break;
+                            }
+                        }
+
+                        if (indexProdukDipilih != -1)
+                        {
+                            // Menambahkan buku yang dipilih ke dalam struktur Pembayaran
+                            pembayaran.produkDibeli[pembayaran.jumlahBukuDibeli] = produk[indexProdukDipilih];
+                            pembayaran.jumlahBukuDibeli++; // Menggunakan jumlahBukuDibeli sebagai indeks
+                            cout << "Buku berhasil dipilih." << endl;
+                        }
+                        else
+                        {
+                            cout << "Buku dengan ID " << idBuku << " tidak ditemukan." << endl;
+                        }
                     }
                     else
                     {
@@ -218,25 +256,37 @@ int main()
             break;
 
         case 2:
-            cout << "\n"
-                 << endl;
+            cout << "\n";
             cout << "|===================================================|" << endl;
-            cout << "|                  Tampilkan Buku                   |" << endl;
+            cout << "|                   ID Edit Buku                    |" << endl;
             cout << "|===================================================|" << endl;
-            tampilkanProduk(produk, jumlahBuku);
+            int idEdit;
+            cout << "Masukkan ID buku yang ingin diubah : ";
+            cin >> idEdit;
+            cout << "\n";
+            editProduk(idEdit);
             break;
 
         case 3:
-            if (pembayaran.jumlahBukuDibeli > 0)
-            {
-                cout << "\n"
-                     << endl;
-                cout << "|===================================================|" << endl;
-                cout << "|                 Pembayaran Buku                   |" << endl;
-                cout << "|===================================================|" << endl;
+            cout << "\n";
+            cout << "|===================================================|" << endl;
+            cout << "|                    Hapus Buku                     |" << endl;
+            cout << "|===================================================|" << endl;
+            int idHapus;
+            cout << "Masukkan ID buku yang ingin dihapus: ";
+            cin >> idHapus;
+            hapusProduk(idHapus);
+            break;
 
-                // Menampilkan buku-buku yang telah dipilih
-                tampilkanProduk(pembayaran.produkDibeli, pembayaran.jumlahBukuDibeli);
+        case 4:
+            if (pembayaran.jumlahBukuDibeli == 0)
+            {
+                cout << "Belum ada buku yang dipilih untuk dibayar. \nSilakan pilih buku terlebih dahulu." << endl;
+            }
+            else
+            {
+                cout << "\n";
+                tampilkanBukuDipilih(pembayaran.produkDibeli, pembayaran.jumlahBukuDibeli);
 
                 double totalBelanja = hitungTotal(pembayaran.produkDibeli, pembayaran.jumlahBukuDibeli);
                 cout << "Total belanja: Rp " << fixed << setprecision(2) << totalBelanja << endl;
@@ -267,39 +317,9 @@ int main()
                     }
                 }
             }
-            else
-            {
-                cout << "Belum ada buku yang dipilih untuk dibayarkan. \nSilakan pilih buku terlebih dahulu." << endl;
-            }
-            break;
-
-        case 4:
-            cout << "\n"
-                 << endl;
-            cout << "|===================================================|" << endl;
-            cout << "|                   ID Edit Buku                    |" << endl;
-            cout << "|===================================================|" << endl;
-            int idEdit;
-            cout << "Masukkan ID buku yang ingin diubah : ";
-            cin >> idEdit;
-            cout << "\n"
-                 << endl;
-            editProduk(idEdit);
             break;
 
         case 5:
-            cout << "\n"
-                 << endl;
-            cout << "|===================================================|" << endl;
-            cout << "|                    Hapus Buku                     |" << endl;
-            cout << "|===================================================|" << endl;
-            int idHapus;
-            cout << "Masukkan ID buku yang ingin dihapus: ";
-            cin >> idHapus;
-            hapusProduk(idHapus);
-            break;
-
-        case 6:
             cout << "Terima kasih!" << endl;
             break;
 
