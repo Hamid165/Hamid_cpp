@@ -189,7 +189,7 @@ void listBuku(vector<Buku> &daftarBuku){
         {6, "The Lord of the Rings ", "Fantasi ", 310000, 6},
         {7, "Pride and Prejudice ", "Romantis ", 150000, 3},
         {8, "The Hobbit ", "Petualangan ", 120000, 8},
-        {9, "Brave New World ", "Fiksi Ilmiah ", 190000, 4},
+        {9, "Laskar Pelangi", "Fiksi Ilmiah ", 190000, 4},
         {10, "The Hunger Games ", "Fiksi  ", 130000, 8},
     };
 }
