@@ -18,7 +18,7 @@ void tampilkanMenu()
 {
     cout << "|===================================================|" << endl;
     cout << "|              Program Kasir Toko Buku              |" << endl;
-    cout << "|===========================================   ========|" << endl;
+    cout << "|===================================================|" << endl;
     cout << "|1. Pilih Buku dari List                            |" << endl;
     cout << "|2. Edit Buku                                       |" << endl;
     cout << "|3. Bayar Buku yang Dipilih                         |" << endl;
@@ -179,7 +179,8 @@ void bayarBuku(vector<Buku> &bukuDipilih)
     }
 }
 
-void listBuku(vector<Buku> &daftarBuku){
+void listBuku(vector<Buku> &daftarBuku)
+{
     daftarBuku = {
         {1, "Harry Potter and the Sorcerer's ", "Fantasi", 100000, 5},
         {2, "To Kill a Mockingbird", "Fiksi Sejarah", 150000, 7},
