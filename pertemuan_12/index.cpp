@@ -5,7 +5,7 @@ int main()
 {
     int angka[] = {4, 5, 7, 3, 7, 1, 2};
     int length = sizeof(angka) / sizeof(*angka);
-    int CariData, HasilCari = 0; 
+    int CariData, HasilCari = 0;
     for (int a = 0; a < length; a++)
     {
         cout << "index ke " << a << ": " << angka[a] << endl;
