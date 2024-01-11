@@ -51,7 +51,7 @@ void tampilkanDaftarBuku(const vector<Buku> &daftarBuku)
     }
     cout << "|==========================================================================================|" << endl;
 }
-//prosedure pilih buku hamid
+// prosedure pilih buku hamid
 void pilihBuku(vector<Buku> &daftarBuku, vector<Buku> &bukuDipilih)
 {
     cout << "|==========================================================================================|" << endl;
@@ -121,7 +121,7 @@ void editBuku(vector<Buku> &daftarBuku)
     cout << "Masukkan ID buku yang akan diedit: ";
     cin >> idEdit;
 
-//percabangan edit buku arden
+    // percabangan edit buku arden
     bool found = false;
     for (Buku &buku : daftarBuku)
     {
@@ -183,7 +183,7 @@ void bayarBuku(vector<Buku> &bukuDipilih)
         cout << "Pembayaran gagal, uang kurang!" << endl;
     }
 }
-//arden array
+// arden array
 void listBuku(vector<Buku> &daftarBuku)
 {
     daftarBuku = {
