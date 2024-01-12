@@ -25,8 +25,8 @@ int main()
     int n = sizeof(array_129) / sizeof(array_129[0]);
     int x = 12102011;
     if (binarySearch(array_129, n, x))
-        cout << "NIM " << x << " ditemukan di kelas.";
+        cout << "NIM " << x << " ditemukan.";
     else
-        cout << "NIM " << x << " tidak ditemukan di kelas.";
+        cout << "NIM " << x << " tidak ditemukan.";
     return 0;
 }
